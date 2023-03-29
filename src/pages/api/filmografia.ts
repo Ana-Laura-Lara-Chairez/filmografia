@@ -12,7 +12,7 @@ type FilmografiaResponse = {
 export const api = {
   all: async (): Promise<FilmografiaResponse> => {
     const res = await fetch(`${API_URL}/filmografias/grid/?apikey=${API_KEY}`, {
-      method: 'POST',
+      method: 'GET',
       headers: {
         'Content-Type': 'application/json',
       },
@@ -31,6 +31,7 @@ export const api = {
       }
     )
     const data = await res.json()
+    // console.log(res)
     return data
   },
 }
