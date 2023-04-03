@@ -23,6 +23,10 @@ module.exports = {
       colors: {
         'gray-80': '#252930',
         'gray-70': '#333943',
+        'yellow-80': '#FFE70B',
+        'blue-30': '#00B2FF',
+        'blue-60': '#5B13B6',
+        'blue-80': '#080F27',
       },
     },
   },

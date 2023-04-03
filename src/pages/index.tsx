@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { SearchBar } from '@/components'
 import { api } from './api/filmografia'
 import { Filmografia } from '@/interfaces/Filmografia'
+import { FilterBar } from '@/components/FilterBar'
 
 export default function Home({
   filmografias,
@@ -14,16 +15,23 @@ export default function Home({
   const [data, setData] = useState<Filmografia[]>(filmografias);
 
   return (
-    <div className="p-12">
+    <div className=" bg-blue-80">
       <SearchBar
         filmografias={filmografias}
         setData={setData}
       />
-      <div className="grid grid-cols-4 gap-2 bg-amarillo-500">
+      <FilterBar
+        filmografias={filmografias}
+        setData={setData}
+      />
+      <div className="grid p-8 justify-center">
+        <h1 className="text-4xl text-white">Filmografía de Durango</h1>
+      </div>
+      <div className="grid grid-cols-5 gap-3 p-10">
         {data.map((filmografia) => (
           <Link key={filmografia.uid} href={filmografia.uid}>
             <div className="
-              bg-white
+              bg-blue-80
               rounded-lg
               shadow-lg
               p-4
@@ -38,9 +46,6 @@ export default function Home({
               hover:-translate-y-1
               hover:scale-110
             ">
-              <h2>{filmografia.titulo}</h2>
-              <p>{filmografia.productora}</p>
-
               <Image
                 src={filmografia.cartel_url
                   ? filmografia.cartel_url
@@ -48,7 +53,9 @@ export default function Home({
                 alt={filmografia.titulo}
                 width={200}
                 height={300}
+                className="place-self-center rounded-md"
               />
+              <h2 className="place-self-center mt-3 text-white font-semibold text-md text-center">{filmografia.titulo}</h2>
             </div>
           </Link>
         ))}
