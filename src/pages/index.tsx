@@ -17,7 +17,7 @@ export default function Home({
   return (
     <div className=" bg-blue-80">
       <SearchBar
-        filmografias={filmografias}
+        filmografia={filmografias}
         setData={setData}
       />
       <FilterBar
@@ -36,7 +36,7 @@ export default function Home({
               shadow-lg
               p-4
               flex
-              flex-col
+              flex-col 
               justify-between
               hover:shadow-2xl
               transition
@@ -50,7 +50,7 @@ export default function Home({
                 src={filmografia.cartel_url
                   ? filmografia.cartel_url
                   : '/images/placeholder.png'}
-                alt={filmografia.titulo}
+                alt={filmografia.titulo} 
                 width={200}
                 height={300}
                 className="place-self-center rounded-md"

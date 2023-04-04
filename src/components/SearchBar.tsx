@@ -3,11 +3,11 @@ import { FC, useEffect, useState } from "react"
 
 
 interface Props {
-    filmografias: Filmografia[]
+    filmografia: Filmografia[]
     setData: (data: Filmografia[]) => void
 }
 
-export const SearchBar: FC<Props> = ({ filmografias, setData }) => {
+export const SearchBar: FC<Props> = ({ filmografia, setData }) => {
 
     const [search, setSearch] = useState<string>('');
     const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -15,7 +15,7 @@ export const SearchBar: FC<Props> = ({ filmografias, setData }) => {
     }
 
     useEffect(() => {
-        setData(filmografias.filter((filmografia) => filmografia.titulo.toLowerCase().includes(search.toLowerCase())))
+        setData(filmografia.filter((filmografia) => filmografia.titulo.toLowerCase().includes(search.toLowerCase())))
     }, [search])
 
     return (
