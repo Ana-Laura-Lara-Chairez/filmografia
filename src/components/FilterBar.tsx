@@ -25,14 +25,38 @@ export const FilterBar: FC<Props> = ({ filmografias, setData }) => {
             País
         </label>
         
+        <select name="select" className="text-black bg-white focus:outline-none font-medium rounded-lg text-sm py-2 text-center inline-flex items-center">
+            <option value="Todos" selected>Todos</option>
+            <option value="Alemania">Alemania</option>
+            <option value="Colombia">Colombia</option>
+            <option value="España">España</option>
+            <option value="Estados Unido">Estados Unidos</option>
+            <option value="Francia">Francia</option>
+            <option value="India">India</option>
+            <option value="Italia">Italia</option>
+            <option value="México">México</option>
+            <option value="Reino Unido">Reino Unido</option>
+            <option value="Rumania">Rumania</option>
+            <option value="Suecia">Suecia</option>
+            <option value="Suiza">Suiza</option>
+        </select>
+ 
         
-        <button id="dropdownHoverButton" data-dropdown-toggle="dropdownHover" data-dropdown-trigger="hover" className="text-black bg-white focus:outline-none font-medium rounded-lg text-sm px-4 py-2 text-center inline-flex items-center" type="button">México<svg className="w-4 h-4 ml-2" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
-
         <label className="text-white px-3">
             Año
         </label>
 
-        <button id="dropdownHoverButton" data-dropdown-toggle="dropdownHover" data-dropdown-trigger="hover" className="text-black bg-white focus:outline-none font-medium rounded-lg text-sm px-4 py-2 text-center inline-flex items-center" type="button">2019<svg className="w-4 h-4 ml-2" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
+        <select name="select" className="text-black bg-white focus:outline-none font-medium rounded-lg text-sm py-2 text-center inline-flex items-center">
+            <option value="Todos" selected>Todos</option>
+            <option value="1950">1950</option>
+            <option value="1960">1960</option>
+            <option value="1970">1970</option>
+            <option value="1980">1980</option>
+            <option value="1990">1990</option>
+            <option value="2000">2000</option>
+            <option value="2010">2010</option>
+            <option value="2020">2020</option>
+        </select>
        
         </div>
         </div>

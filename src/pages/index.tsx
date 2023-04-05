@@ -55,6 +55,7 @@ export default function Home({
                 height={300}
                 className="place-self-center rounded-md"
               />
+              
               <h2 className="place-self-center mt-3 text-white font-semibold text-md text-center">{filmografia.titulo}</h2>
             </div>
           </Link>
