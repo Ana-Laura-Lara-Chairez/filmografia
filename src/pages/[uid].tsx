@@ -52,6 +52,8 @@ export default function ViewFilmografia({
           <p className='mt-1'>{filmografia?.sipnopsis}.</p>
           <p className='mt-3'> {filmografia?.synopsis}.</p>
         </header>
+
+        <a href="http://localhost:3000/"><button className="text-white bg-blue-30 px-2 py-1 mt-5 rounded-lg mb-5 justify-end">Volver a inicio</button></a>
         </div> 
         
         </div>
