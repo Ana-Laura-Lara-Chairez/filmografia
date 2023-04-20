@@ -31,7 +31,6 @@ export const api = {
       }
     )
     const data = await res.json()
-    // console.log(res)
     return data
   },
 }

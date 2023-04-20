@@ -1,10 +1,11 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { SearchBar } from '@/components'
 import { api } from './api/filmografia'
 import { Filmografia } from '@/interfaces/Filmografia'
 import { FilterBar } from '@/components/FilterBar'
+import { validateYearRange } from '@/helpers/validateYearRange'
 
 export default function Home({
   filmografias,
@@ -14,15 +15,37 @@ export default function Home({
 
   const [data, setData] = useState<Filmografia[]>(filmografias);
 
+  const [term, setTerm] = useState<string>('');
+  const [terms, setTerms] = useState<{
+    country: string;
+    year: number;
+  }>({
+    country: '',
+    year: undefined || 0,
+  });
+
+
+  useEffect(() => {
+    // const { country, year } = terms;
+    const { year } = terms;
+    const filteredData = filmografias.filter(
+      (filmografia) =>
+        // (!country || filmografia.pais === country) &&  the api doesn't have the country field
+        (!year || validateYearRange(filmografia.year, year)) &&
+        (!term || filmografia.titulo.toLowerCase().includes(term.toLowerCase()))
+    );
+    setData(filteredData);
+
+  }, [term, terms])
+
   return (
-    <div className=" bg-blue-80">
+    <div className="bg-blue-80 min-h-screen">
       <SearchBar
-        filmografia={filmografias}
-        setData={setData}
+        onDebounce={(value: string) => setTerm(value)}
       />
       <FilterBar
-        filmografias={filmografias}
-        setData={setData}
+        terms={terms}
+        setTerms={setTerms}
       />
       <div className="grid p-8 justify-center">
         <h1 className="text-4xl text-white">Filmografía de Durango</h1>
@@ -31,6 +54,7 @@ export default function Home({
         {data.map((filmografia) => (
           <Link key={filmografia.uid} href={filmografia.uid}>
             <div className="
+             
               bg-blue-80
               rounded-lg
               shadow-lg
@@ -50,12 +74,12 @@ export default function Home({
                 src={filmografia.cartel_url
                   ? filmografia.cartel_url
                   : '/images/placeholder.png'}
-                alt={filmografia.titulo} 
+                alt={filmografia.titulo}
                 width={200}
                 height={300}
                 className="place-self-center rounded-md"
               />
-              
+
               <h2 className="place-self-center mt-3 text-white font-semibold text-md text-center">{filmografia.titulo}</h2>
             </div>
           </Link>
