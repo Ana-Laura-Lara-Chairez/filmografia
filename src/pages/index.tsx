@@ -54,14 +54,14 @@ export default function Home({
         <h1 className="text-4xl text-white">Filmografía de Durango</h1>
       </div>
       
-      <div className="grid sm:grid-cols-2 md:grid-cols-5 gap-3 p-10">
+      <div className="grid sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-3 p-10">
         {data.map((filmografia) => (
           <Link key={filmografia.uid} href={filmografia.uid}>
             <div className="
               bg-blue-60
               rounded-lg
               shadow-lg
-              p-4
+              p-5
               flex
               flex-col 
               justify-between
@@ -71,7 +71,7 @@ export default function Home({
               ease-in-out
               transform
               hover:-translate-y-1
-              hover:scale-110
+              hover:scale-105
               min-h-full	
             ">
               <Image
@@ -91,7 +91,7 @@ export default function Home({
         ))}
         <div>
       <div style={{ marginTop: "150vh"}} />
-      <ScrollToTop smooth />
+      <ScrollToTop smooth color="#ff7b1c" width='40' height='30' />
       </div>
       </div>
     </div>
