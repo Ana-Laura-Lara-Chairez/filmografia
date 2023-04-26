@@ -33,7 +33,7 @@ export default function ViewFilmografia({
       <div className="bg-white rounded-lg drop-shadow-xl">
         <div className="flex sm: flex-col md:flex-row">
           <div className="w-1/2 items-center">
-            <img className="p-3 ml-12 mt-5 w-4/5 justify-center" src={filmografia?.cartel} alt={filmografia?.titulo}/>
+            <img className="p-3 ml-12 mt-5 w-4/5" src={filmografia?.cartel} alt={filmografia?.titulo}/>
           </div>
 
           <div className="w-2/2 p-5">
