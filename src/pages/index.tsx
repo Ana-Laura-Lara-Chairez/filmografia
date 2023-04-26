@@ -52,7 +52,7 @@ export default function Home({
       <div className="grid p-8 justify-center">
         <h1 className="text-4xl text-white">Filmografía de Durango</h1>
       </div>
-      <div className="grid grid-cols-5 gap-3 p-10">
+      <div className="grid sm:grid-cols-2 md:grid-cols-5 gap-3 p-10">
         {data.map((filmografia) => (
           <Link key={filmografia.uid} href={filmografia.uid}>
             <div className="

@@ -22,8 +22,7 @@ export const FilterBar: FC<Props> = ({ setTerms, terms }) => {
         <div className="grid justify-center bg-blue-80">
             <div className="py-3">
 
-                {/* country is not defined by the api */}
-                {/* <label className="text-white px-3">
+                <label className="text-white px-3">
                     País
                 </label>
 
@@ -32,6 +31,7 @@ export const FilterBar: FC<Props> = ({ setTerms, terms }) => {
                     value={terms.country}
                     onChange={handleChange}
                     className="text-black bg-white focus:outline-none font-medium rounded-lg text-sm py-2 text-center inline-flex items-center">
+                    <option value="">Todos</option>
                     <option value="Alemania">Alemania</option>
                     <option value="Colombia">Colombia</option>
                     <option value="España">España</option>
@@ -44,7 +44,7 @@ export const FilterBar: FC<Props> = ({ setTerms, terms }) => {
                     <option value="Rumania">Rumania</option>
                     <option value="Suecia">Suecia</option>
                     <option value="Suiza">Suiza</option>
-                </select> */}
+                </select>
 
 
                 <label className="text-white px-3">
