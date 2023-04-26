@@ -6,6 +6,8 @@ import { api } from './api/filmografia'
 import { Filmografia } from '@/interfaces/Filmografia'
 import { FilterBar } from '@/components/FilterBar'
 import { validateYearRange } from '@/helpers/validateYearRange'
+import ScrollToTop from "react-scroll-to-top";
+
 
 export default function Home({
   filmografias,
@@ -39,7 +41,7 @@ export default function Home({
   }, [term, terms])
 
   return (
-    <div className="bg-blue-80 min-h-screen">
+    <div className="bg-blue-60 min-h-screen">
       <SearchBar
         onDebounce={(value: string) => setTerm(value)}
       />
@@ -54,8 +56,7 @@ export default function Home({
         {data.map((filmografia) => (
           <Link key={filmografia.uid} href={filmografia.uid}>
             <div className="
-             
-              bg-blue-80
+              bg-blue-60
               rounded-lg
               shadow-lg
               p-4
@@ -69,6 +70,7 @@ export default function Home({
               transform
               hover:-translate-y-1
               hover:scale-110
+              min-h-full	
             ">
               <Image
                 src={filmografia.cartel_url
@@ -83,7 +85,12 @@ export default function Home({
               <h2 className="place-self-center mt-3 text-white font-semibold text-md text-center">{filmografia.titulo}</h2>
             </div>
           </Link>
+          
         ))}
+        <div>
+      <div style={{ marginTop: "150vh"}} />
+      <ScrollToTop smooth />
+      </div>
       </div>
     </div>
   )

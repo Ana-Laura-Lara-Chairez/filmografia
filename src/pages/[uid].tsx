@@ -21,9 +21,17 @@ export default function ViewFilmografia({
   }
 
   return (
+    <div>
+      <nav className="bg-white shadow-lg shadow-gray-200">
+        <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-2">
+            <a href="/" className="flex items-center">
+                <img src="/images/logo.png" className="h-11 ml-10" alt="Logo" />
+            </a>
+        </div>
+    </nav> 
     <div className="container mt-10">
       <div className="bg-white p8 rounded-lg drop-shadow-xl">
-        <div className='flex flex-row'>
+        <div className="flex">
           <div className="w-1/2">
             <img className="p-3 ml-10 mt-5" src={filmografia?.cartel} alt={filmografia?.titulo} width={300} />
           </div>
@@ -33,7 +41,7 @@ export default function ViewFilmografia({
               <p> <span className="font-xl font-bold mb-3 mt-10">Pais de origen: </span>{`${filmografia?.pais}`}  </p>
               <h1 className="text-4xl font-semibold mb-3 mt-5 text-blue-80">{titulo}</h1>
               <p> <span className="font-xl font-bold mb-3 mt-10">Nombre original: </span>{title}</p>
-              <button className="text-white bg-blue-30 px-2 py-1 mt-2 rounded-lg mb-5">{filmografia?.year}</button>
+              <button className="text-white bg-orange-80 px-2 py-1 mt-2 rounded-lg mb-5">{filmografia?.year}</button>
 
               <p> <span className="font-xl font-bold">Protagonistas: </span>{filmografia?.protagonistas}</p>
 
@@ -47,17 +55,21 @@ export default function ViewFilmografia({
                 <p> <span className="font-xl font-bold">Productora: </span>{filmografia?.productora} </p>
               </div>
 
-              <p className="font-xl font-bold">Sinópsis/Synopsis: </p>
-              <p className='mt-1'>{filmografia?.sipnopsis}.</p>
-              <p className='mt-3'> {filmografia?.synopsis}.</p>
+              <p className="font-xl font-bold">Sinópsis: </p>
+              <p className='mt-3 mb-3'>{filmografia?.sipnopsis}.</p>
+
+              <p className="font-xl font-bold">Synopsis: </p>
+              <p className='mt-1'> {filmografia?.synopsis}.</p>
             </header>
 
-            <a href="http://localhost:3000/"><button className="text-white bg-blue-30 px-2 py-1 mt-5 rounded-lg mb-5 justify-end">Volver a inicio</button></a>
+            <a href="/"><button className="text-white bg-orange-80 px-2 py-1 mt-5 rounded-lg mb-5 justify-end">Volver a inicio</button></a>
           </div>
 
         </div>
       </div>
     </div>
+    </div>
+    
   )
 }
 

@@ -19,7 +19,7 @@ export const FilterBar: FC<Props> = ({ setTerms, terms }) => {
         setTerms({ ...terms, [e.target.name]: e.target.value });
     }
     return (
-        <div className="grid justify-center bg-blue-60">
+        <div className="grid justify-center bg-blue-80">
             <div className="py-3">
 
                 {/* country is not defined by the api */}
@@ -56,6 +56,7 @@ export const FilterBar: FC<Props> = ({ setTerms, terms }) => {
                     value={terms.year}
                     onChange={handleChange}
                     className="text-black bg-white focus:outline-none font-medium rounded-lg text-sm py-2 text-center inline-flex items-center">
+                    <option value={''}>Todos</option>
                     <option value={1950}>1950</option>
                     <option value={1960}>1960</option>
                     <option value={1970}>1970</option>
@@ -65,7 +66,6 @@ export const FilterBar: FC<Props> = ({ setTerms, terms }) => {
                     <option value={2010}>2010</option>
                     <option value={2020}>2020</option>
                 </select>
-
             </div>
         </div >
 
