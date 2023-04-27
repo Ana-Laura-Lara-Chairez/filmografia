@@ -1,5 +1,6 @@
 import { Filmografia } from "@/interfaces/Filmografia"
 import { FC, useEffect, useState } from "react"
+import Select from "@/components/Select";
 
 
 interface Props {
@@ -13,13 +14,13 @@ interface Props {
     };
 }
 
-export const FilterBar: FC<Props> = ({ setTerms, terms }) => {
+export const SideBar: FC<Props> = ({ setTerms, terms }) => {
 
     const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
         setTerms({ ...terms, [e.target.name]: e.target.value });
     }
     return (
-        <div className="grid justify-center bg-blue-80">
+        <div className="grid justify-center bg-orange-80">
             <div className="py-3">
 
                 <label className="text-white px-3">
@@ -67,6 +68,7 @@ export const FilterBar: FC<Props> = ({ setTerms, terms }) => {
                     <option value={2020}>2020</option>
                 </select>
             </div>
+           <Select/>
         </div >
 
     )

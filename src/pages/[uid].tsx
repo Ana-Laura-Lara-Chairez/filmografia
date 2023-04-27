@@ -1,6 +1,7 @@
 import { Filmografia } from '@/interfaces/Filmografia'
 import { GetServerSideProps } from 'next'
 import { api } from './api/filmografia'
+import { NavBar } from '@/components/NavBar'
 
 export default function ViewFilmografia({
   filmografia,
@@ -22,13 +23,7 @@ export default function ViewFilmografia({
 
   return (
     <div>
-      <nav className="bg-white shadow-lg shadow-gray-200">
-        <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-2">
-            <a href="/" className="flex items-center">
-                <img src="/images/logo.png" className="h-11 ml-10" alt="Logo" />
-            </a>
-        </div>
-    </nav> 
+    <NavBar/>
     <div className="container mt-10">
       <div className="bg-white rounded-lg drop-shadow-xl">
         <div className="flex sm: flex-col lg:flex-row">

@@ -1,12 +1,14 @@
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { SearchBar } from '@/components'
 import { api } from './api/filmografia'
 import { Filmografia } from '@/interfaces/Filmografia'
-import { FilterBar } from '@/components/FilterBar'
 import { validateYearRange } from '@/helpers/validateYearRange'
 import ScrollToTop from "react-scroll-to-top";
+import { SideBar } from '@/components/SideBar'
+import { NavBar } from '@/components/NavBar'
+import { SearchBar } from '@/components/SearchBar'
+import Select from '@/components/Select'
 
 
 export default function Home({
@@ -42,10 +44,12 @@ export default function Home({
 
   return (
     <div className="bg-blue-60 min-h-screen">
+      <NavBar/>
+      {/* <Select/> */}
       <SearchBar
         onDebounce={(value: string) => setTerm(value)}
       />
-      <FilterBar
+      <SideBar
         terms={terms}
         setTerms={setTerms}
       />
@@ -72,7 +76,6 @@ export default function Home({
               transform
               hover:-translate-y-1
               hover:scale-105
-              min-h-full	
             ">
               <Image
                 src={filmografia.cartel_url
