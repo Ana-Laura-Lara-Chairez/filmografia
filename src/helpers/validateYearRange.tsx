@@ -1,1 +1,3 @@
-export const validateYearRange = (filmYear: number, selectedYear: number) => Math.abs(filmYear - selectedYear) <= 9;
+export const validateYearRange = (filmYear: number, selectedYears: number[]) => {
+    return selectedYears.some(selectedYear => Math.abs(filmYear - selectedYear) <= 9);
+}

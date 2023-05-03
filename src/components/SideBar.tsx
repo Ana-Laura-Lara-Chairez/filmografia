@@ -1,74 +1,49 @@
-import { Filmografia } from "@/interfaces/Filmografia"
-import { FC, useEffect, useState } from "react"
-import Select from "@/components/Select";
-
-
+import { Dispatch, FC, SetStateAction } from "react"
+import { ChipList } from "./ChipList";
 interface Props {
-    setTerms: (terms: {
-        country: string;
-        year: number;
-    }) => void;
-    terms: {
-        country: string;
-        year: number;
-    };
+    years: number[];
+    setYears: Dispatch<SetStateAction<number[]>>
 }
 
-export const SideBar: FC<Props> = ({ setTerms, terms }) => {
+const options = [
+    { label: "1950", key: 1950 },
+    { label: "1960", key: 1960 },
+    { label: "1970", key: 1970 },
+    { label: "1980", key: 1980 },
+    { label: "1990", key: 1990 },
+    { label: "2000", key: 2000 },
+    { label: "2010", key: 2010 },
+    { label: "2020", key: 2020 },
+]
 
-    const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-        setTerms({ ...terms, [e.target.name]: e.target.value });
-    }
+export const SideBar: FC<Props> = ({ years, setYears }) => {
+
     return (
-        <div className="grid justify-center bg-orange-80">
-            <div className="py-3">
+        <div className="h-[45rem] m-5
+        w-[20%] 
+        justify-center 
+        items-center 
+        shadow-2xl 
+        p-1
+        md:p-10
+        rounded-xl
+        bg-white
+       ">
+            <p className="text-2xl font-bold text-black mb-4">Filtros</p>
 
-                <label className="text-white px-3">
-                    País
-                </label>
+            <ChipList
+                title="Año"
+                options={options}
+                setYears={setYears}
+                years={years}
+            />
+            {/* <ChipList
+                title="Pais"
+                options={options}
+                setYears={setYears}
+                years={years}
+            /> */}
 
-                <select
-                    name="country"
-                    value={terms.country}
-                    onChange={handleChange}
-                    className="text-black bg-white focus:outline-none font-medium rounded-lg text-sm py-2 text-center inline-flex items-center">
-                    <option value="">Todos</option>
-                    <option value="Alemania">Alemania</option>
-                    <option value="Colombia">Colombia</option>
-                    <option value="España">España</option>
-                    <option value="Estados Unido">Estados Unidos</option>
-                    <option value="Francia">Francia</option>
-                    <option value="India">India</option>
-                    <option value="Italia">Italia</option>
-                    <option value="México">México</option>
-                    <option value="Reino Unido">Reino Unido</option>
-                    <option value="Rumania">Rumania</option>
-                    <option value="Suecia">Suecia</option>
-                    <option value="Suiza">Suiza</option>
-                </select>
-
-
-                <label className="text-white px-3">
-                    Año
-                </label>
-
-                <select
-                    name="year"
-                    value={terms.year}
-                    onChange={handleChange}
-                    className="text-black bg-white focus:outline-none font-medium rounded-lg text-sm py-2 text-center inline-flex items-center">
-                    <option value={''}>Todos</option>
-                    <option value={1950}>1950</option>
-                    <option value={1960}>1960</option>
-                    <option value={1970}>1970</option>
-                    <option value={1980}>1980</option>
-                    <option value={1990}>1990</option>
-                    <option value={2000}>2000</option>
-                    <option value={2010}>2010</option>
-                    <option value={2020}>2020</option>
-                </select>
-            </div>
-           <Select/>
         </div >
 
     )
