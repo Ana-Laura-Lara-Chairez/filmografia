@@ -28,17 +28,17 @@ export const Movie: FC<Props> = ({ uid, cartel_url, titulo, refScroll }) => {
             cursor-pointer
             w-60
             md:max-w-sm
-            h-96		 
+            h-90		 
             ">
             <Image
                 src={cartel_url
                     ? cartel_url
                     : '/images/placeholder.png'}
                 alt={titulo}
-                width={180}
-                height={180}
+                width={170}
+                height={170}
             />
-            <p className="mx-auto text-center text-black max-w-xs md:max-w-md">{titulo}</p>
+            <p className="mx-auto text-center mt-3 text-black max-w-xs md:max-w-md">{titulo}</p>
         </Link>
     )
 }

@@ -1,5 +1,6 @@
 import { Dispatch, FC, SetStateAction } from "react"
 import { ChipList } from "./ChipList";
+
 interface Props {
     years: number[];
     setYears: Dispatch<SetStateAction<number[]>>
@@ -52,3 +53,5 @@ export const SideBar: FC<Props> = ({ years, setYears }) => {
 
     )
 }
+
+

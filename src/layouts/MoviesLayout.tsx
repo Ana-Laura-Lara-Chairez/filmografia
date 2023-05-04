@@ -13,7 +13,8 @@ export const MoviesLayout = ({ children, }: { children: React.ReactNode }) => {
                 w-[90%]
                 rounded-xl
                 shadow-2xl
-                bg-white">
+                bg-white
+                sm: ml-3">
             {/* <p className="
                 text-2xl
                 font-bold
