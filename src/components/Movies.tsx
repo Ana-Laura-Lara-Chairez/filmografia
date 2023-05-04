@@ -1,12 +1,31 @@
 import { Filmografia } from '@/interfaces/Filmografia';
 import { Movie } from './Movie';
-import { useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import ScrollToTop from 'react-scroll-to-top';
+import { SearchBar } from './SearchBar';
+import { validateYearRange } from '@/helpers/validateYearRange';
 interface Props {
     data: Filmografia[];
 }
 
 export const Movies = ({ data }: Props) => {
     const scroll = useRef<HTMLAnchorElement>(null)
+
+    const [datas, setData] = useState<Filmografia[]>(data);
+    const [term, setTerm] = useState<string>('');
+    const [years, setYears] = useState<number[]>([])
+    
+    useEffect(() => {
+        const filteredData = data.filter(
+          (data) =>
+            // (!country || filmografia.pais === country) &&  the api doesn't have the country field
+            (!(years.length >= 1) || validateYearRange(data.year, years)) &&
+            (!term || data.titulo.toLowerCase().includes(term.toLowerCase()))
+        );
+        setData(filteredData);
+    
+      }, [term, years])
+
 
     const handleButtonClick = () =>
         scroll.current?.scrollIntoView({
@@ -18,8 +37,11 @@ export const Movies = ({ data }: Props) => {
 
     return (
         <>
-            <div className="flex relative flex-wrap gap-3 overflow-y-scroll h-[90%]">
-                {data.map(({ cartel_url, uid, titulo }, i) => (
+        <SearchBar
+        onDebounce={(value: string) => setTerm(value)}
+        />
+            <div className="flex relative flex-wrap gap-3 overflow-y-scroll h-[80%]">
+                {datas.map(({ cartel_url, uid, titulo }, i) => (
                     <Movie
                         refScroll={i === 0 ? scroll : null}
                         key={uid}
@@ -27,13 +49,11 @@ export const Movies = ({ data }: Props) => {
                         uid={uid}
                         titulo={titulo}
                     />
+                    
                 ))}
-                <div className="fixed bottom-20 right-10 cursor-pointer" onClick={handleButtonClick}>
-                    <svg viewBox="0 0 64 64" width="32" height="32">
-                        <path fill="black" d="M32,0L0,32h12v32h40V32h12L32,0z" />
-                    </svg>
-                </div>
-            </div >
+                <div style={{ marginTop: "100vh"}} />
+            <ScrollToTop smooth color="#ff7b1c" width='40' height='30' />
+            </div>
         </>
     )
 }

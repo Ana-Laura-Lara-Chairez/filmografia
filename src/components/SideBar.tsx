@@ -19,17 +19,21 @@ const options = [
 export const SideBar: FC<Props> = ({ years, setYears }) => {
 
     return (
-        <div className="h-[45rem] m-5
-        w-[20%] 
+        <div className="
+        sm: w-[90%]
+        h-full
+        m-5
+        md:w-[15%] 
+        md:h-[45rem] 
         justify-center 
         items-center 
-        shadow-2xl 
-        p-1
-        md:p-10
+        shadow-xl 
+        p-6
+        ml-3
         rounded-xl
         bg-white
        ">
-            <p className="text-2xl font-bold text-black mb-4">Filtros</p>
+            <p className="sm:text-xl md:text-2xl font-bold text-black mt-2 mb-3">Filtros</p>
 
             <ChipList
                 title="Año"

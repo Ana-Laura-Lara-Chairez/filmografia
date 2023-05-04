@@ -34,11 +34,13 @@ export default function Home({
   return (
     <>
       <NavBar />
-      <SearchBar
+      {/* <SearchBar
         onDebounce={(value: string) => setTerm(value)}
-      />
-      {/* Main Container */}
-      <div className="flex flex-row gap-5 w-screen ">
+      /> */}
+      {/* <div className="grid p-8 justify-center">
+        <h1 className="text-4xl text-white">Filmografía de Durango</h1>
+      </div> */}
+      <div className="flex sm: flex-col md:flex-row bg-blue-80">
         <SideBar
           years={years}
           setYears={setYears}
@@ -49,9 +51,6 @@ export default function Home({
           />
         </MoviesLayout>
       </div>
-
-
-
     </>
   )
 }

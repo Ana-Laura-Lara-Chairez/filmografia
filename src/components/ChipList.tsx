@@ -26,7 +26,7 @@ export const ChipList: React.FC<Props> = ({ options, setYears, years, title }) =
 
     return (
         <div
-            className="flex flex-col gap-5 list-none"
+            className="flex flex-col md:gap-5 list-none mt-2"
         >
             <p>{title}</p>
             <div className=' flex flex-wrap'>
