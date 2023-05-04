@@ -4,7 +4,7 @@ import logo from "/public/images/logo.png";
 export const NavBar = () => {
 
     return (
-        <nav className="bg-white shadow-md shadow-gray-200">
+        <nav className="bg-white shadow-md shadow-gray-200 w-full sticky top-0 z-50 bg-scroll">
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-2">
             <a href="/" className="flex items-center">
                 <img src="/images/logo.png" className="h-11 ml-10" alt="Logo" />

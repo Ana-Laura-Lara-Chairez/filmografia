@@ -3,7 +3,6 @@ import ScrollToTop from "react-scroll-to-top"
 export const MoviesLayout = ({ children, }: { children: React.ReactNode }) => {
     return (
         <div className="
-                h-[45rem]
                 flex
                 flex-col
                 gap-4   

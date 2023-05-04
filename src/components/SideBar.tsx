@@ -22,10 +22,9 @@ export const SideBar: FC<Props> = ({ years, setYears }) => {
     return (
         <div className="
         sm: w-[90%]
-        h-full
         m-5
         md:w-[15%] 
-        md:h-[45rem] 
+        md:h-[35rem] 
         justify-center 
         items-center 
         shadow-xl 
@@ -33,6 +32,7 @@ export const SideBar: FC<Props> = ({ years, setYears }) => {
         ml-3
         rounded-xl
         bg-white
+        md:sticky top-20 z-50
        ">
             <p className="sm:text-xl md:text-2xl font-bold text-black mt-2 mb-3">Filtros</p>
 

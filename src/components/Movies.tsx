@@ -40,7 +40,7 @@ export const Movies = ({ data }: Props) => {
         <SearchBar
         onDebounce={(value: string) => setTerm(value)}
         />
-            <div className="flex relative flex-wrap gap-3 overflow-y-scroll h-[80%]">
+            <div className="flex relative flex-wrap gap-5 h-[80%]">
                 {datas.map(({ cartel_url, uid, titulo }, i) => (
                     <Movie
                         refScroll={i === 0 ? scroll : null}

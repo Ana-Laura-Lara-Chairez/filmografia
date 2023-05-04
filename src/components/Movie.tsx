@@ -28,7 +28,7 @@ export const Movie: FC<Props> = ({ uid, cartel_url, titulo, refScroll }) => {
             cursor-pointer
             w-60
             md:max-w-sm
-            h-90		 
+            h-96		 
             ">
             <Image
                 src={cartel_url
