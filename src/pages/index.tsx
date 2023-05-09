@@ -16,7 +16,6 @@ export default function Home({
 }) {
 
   const [data, setData] = useState<Filmografia[]>(filmografias);
-  const [term, setTerm] = useState<string>('');
   const [years, setYears] = useState<number[]>([])
 
 
@@ -24,12 +23,10 @@ export default function Home({
     const filteredData = filmografias.filter(
       (filmografia) =>
         // (!country || filmografia.pais === country) &&  the api doesn't have the country field
-        (!(years.length >= 1) || validateYearRange(filmografia.year, years)) &&
-        (!term || filmografia.titulo.toLowerCase().includes(term.toLowerCase()))
+        (!(years.length >= 1) || validateYearRange(filmografia.year, years))
     );
     setData(filteredData);
-
-  }, [term, years])
+  }, [years])
 
   return (
     <>

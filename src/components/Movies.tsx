@@ -13,18 +13,17 @@ export const Movies = ({ data }: Props) => {
 
     const [datas, setData] = useState<Filmografia[]>(data);
     const [term, setTerm] = useState<string>('');
-    const [years, setYears] = useState<number[]>([])
-    
+
     useEffect(() => {
+
         const filteredData = data.filter(
-          (data) =>
-            // (!country || filmografia.pais === country) &&  the api doesn't have the country field
-            (!(years.length >= 1) || validateYearRange(data.year, years)) &&
-            (!term || data.titulo.toLowerCase().includes(term.toLowerCase()))
+            (data) =>
+                // (!country || filmografia.pais === country) &&  the api doesn't have the country field
+                (!term || data.titulo.toLowerCase().includes(term.toLowerCase()))
         );
         setData(filteredData);
-    
-      }, [term, years])
+
+    }, [term, data])
 
 
     const handleButtonClick = () =>
@@ -37,9 +36,9 @@ export const Movies = ({ data }: Props) => {
 
     return (
         <>
-        <SearchBar
-        onDebounce={(value: string) => setTerm(value)}
-        />
+            <SearchBar
+                onDebounce={(value: string) => setTerm(value)}
+            />
             <div className="flex relative flex-wrap gap-5 h-[80%]">
                 {datas.map(({ cartel_url, uid, titulo }, i) => (
                     <Movie
@@ -49,10 +48,10 @@ export const Movies = ({ data }: Props) => {
                         uid={uid}
                         titulo={titulo}
                     />
-                    
+
                 ))}
-                <div style={{ marginTop: "100vh"}} />
-            <ScrollToTop smooth color="#ff7b1c" width='40' height='30' />
+                <div style={{ marginTop: "100vh" }} />
+                <ScrollToTop smooth color="#ff7b1c" width='40' height='30' />
             </div>
         </>
     )
