@@ -35,8 +35,8 @@ export const Movie: FC<Props> = ({ uid, cartel_url, titulo, refScroll }) => {
                     ? cartel_url
                     : '/images/placeholder.png'}
                 alt={titulo}
-                width={170}
-                height={170}
+                width={160}
+                height={160}
             />
             <p className="mx-auto text-center mt-3 text-black max-w-xs md:max-w-md">{titulo}</p>
         </Link>

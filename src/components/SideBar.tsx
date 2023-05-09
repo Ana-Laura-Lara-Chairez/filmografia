@@ -1,5 +1,7 @@
 import { Dispatch, FC, SetStateAction } from "react"
 import { ChipList } from "./ChipList";
+import React from "react";
+import MultiSelect from "./MultiSelect";
 
 interface Props {
     years: number[];
@@ -15,6 +17,11 @@ const options = [
     { label: "2000", key: 2000 },
     { label: "2010", key: 2010 },
     { label: "2020", key: 2020 },
+]
+
+const options2 = [
+    { label: "Estados Unidos", key: 1950 },
+    { label: "México", key: 1960 },
 ]
 
 export const SideBar: FC<Props> = ({ years, setYears }) => {
@@ -42,16 +49,17 @@ export const SideBar: FC<Props> = ({ years, setYears }) => {
                 setYears={setYears}
                 years={years}
             />
-            {/* <ChipList
+            <ChipList
                 title="Pais"
-                options={options}
+                options={options2}
                 setYears={setYears}
                 years={years}
-            /> */}
+            />
 
-        </div >
-
+            {/* <p className="mt-5">País</p>
+        
+            <MultiSelect /> */}
+        </div>
+    
     )
 }
-
-

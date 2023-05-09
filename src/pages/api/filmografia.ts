@@ -1,7 +1,8 @@
 import { Filmografia } from '@/interfaces/Filmografia'
 
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-const API_URL = 'https://api.dgomx.com/filmografias'
+const API_URL = 'https://api.dgomx.com/filmografias/filmografias/grid/?apikey=34413e5e-019e-46dc-afe3-ef6673ff905b&'
+/* https://api.dgomx.com/filmografias */
 const API_KEY = '34413e5e-019e-46dc-afe3-ef6673ff905b'
 
 type FilmografiaResponse = {
