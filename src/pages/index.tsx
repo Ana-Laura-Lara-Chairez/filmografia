@@ -48,7 +48,46 @@ export default function Home({
           />
         </MoviesLayout>
       </div>
+<<<<<<< HEAD
     </>
+=======
+      <div className="grid grid-cols-5 gap-3 p-10">
+        {data.map((filmografia) => (
+          <Link key={filmografia.uid} href={filmografia.uid}>
+            <div className="
+              bg-blue-80
+              rounded-lg
+              shadow-lg
+              p-4
+              flex
+              flex-col 
+              justify-between
+              hover:shadow-2xl
+              transition
+              duration-500
+              ease-in-out
+              transform
+              hover:-translate-y-1
+              hover:scale-110
+            ">
+              <Image
+                src={filmografia.cartel_url
+                  ? filmografia.cartel_url
+                  : '/images/placeholder.png'}
+                alt={filmografia.titulo} 
+                width={200}
+                height={300}
+                className="place-self-center rounded-md"
+              />
+              
+              <h2 className="place-self-center mt-3 text-white font-semibold text-md text-center">{filmografia.titulo}</h2>
+              
+            </div>
+          </Link>
+        ))}
+      </div>
+    </div>
+>>>>>>> gitlab/residentes
   )
 }
 

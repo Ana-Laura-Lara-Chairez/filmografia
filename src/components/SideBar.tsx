@@ -19,10 +19,6 @@ const options = [
     { label: "2020", key: 2020 },
 ]
 
-const options2 = [
-    { label: "Estados Unidos", key: 1950 },
-    { label: "México", key: 1960 },
-]
 
 export const SideBar: FC<Props> = ({ years, setYears }) => {
 
@@ -49,12 +45,22 @@ export const SideBar: FC<Props> = ({ years, setYears }) => {
                 setYears={setYears}
                 years={years}
             />
-            <ChipList
+
+
+
+
+
+
+
+
+
+            
+            {/* <ChipList
                 title="Pais"
                 options={options2}
                 setYears={setYears}
                 years={years}
-            />
+            /> */}
 
             {/* <p className="mt-5">País</p>
         
